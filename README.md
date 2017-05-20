@@ -3,6 +3,8 @@ A repo just for the protocol XD
 
 ## Type 1 packets
 
+Type 1 packets are used to sync the states of clients across the server in an event driven fashion.
+
 Each packet consists of a list of `action`s, which represent an action that an entity performs. For example:
  - Bot accelerating
  - Bullet moving
@@ -20,7 +22,7 @@ Example of transaction between client and server:
 
 Example in JSON:
 ```json
-//sync packet sent from client to server
+//packet sent from client to server
 {
 	playerUUID: "eoiroieut",
 	actions:
@@ -36,7 +38,7 @@ Example in JSON:
 	]
 }
 
-//sync packet sent from server to clients
+//packet sent from server to clients
 {
 	actions:
 	[
@@ -54,3 +56,11 @@ Example in JSON:
 	]
 }
 ```
+
+## Type 2 packets
+
+Type 2 packets are used to request data from the server directly.
+
+The client will send a request packet to the server, consisting of a query, and related query parameters. Then the server will reply with the result from the query, if the client is permitted to access it.
+
+Type 2 packets should not be used for realtime information transfer.
