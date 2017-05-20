@@ -3,9 +3,10 @@ A repo just for the protocol XD
 
 Current ideas:
 ```json
+//sync packet sent from client to server
 {
 	playerUUID: "eoiroieut",
-	actions: <-- support multiple actions in one "packet"
+	actions:
 	[
 		{
 			action: "movement",
@@ -18,7 +19,7 @@ Current ideas:
 	]
 }
 
-//response packet
+//sync packet sent from server to client
 {
 	actions:
 	[
@@ -26,7 +27,7 @@ Current ideas:
 			action: "movement",
 			params: {
 				entityUUID: "cust",
-        entityType: "bot"
+        			entityType: "bot"
 				yVel: 100,
 				xVel: 10,
 				currX: -100,
@@ -37,7 +38,7 @@ Current ideas:
 			action: "movement",
 			params: {
 				entityUUID: "wretre",
-        entityType: "bullet"
+       				entityType: "bullet"
 				yVel: 100,
 				xVel: 10,
 				currX: -100,
